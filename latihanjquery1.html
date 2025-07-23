@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Latihan jQuery Pertama</title>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    .box-welcome {
+      background-color: #2196f3;
+      color: white;
+      padding: 20px;
+      margin: 0 auto 30px auto;
+      width: 300px;
+      border-radius: 10px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .paragraph-box {
+      max-width: 700px;
+      margin: 0 auto 20px auto;
+      text-align: justify;
+      background-color: #e3f2fd; /* Biru muda */
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      line-height: 1.6;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      background-color: rgb(114, 175, 185);
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #7999bd;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="box-welcome">Selamat Datang</div>
+
+    <div class="paragraph-box" id="paragraf">
+      SMK BHAKTI NUSANTARA merupakan salah satu sekolah jenjang SMK berstatus Swasta yang berada di wilayah Kec. Boja, Kab. Kendal, Jawa Tengah. SMKS BHAKTI NUSANTARA didirikan pada tanggal 12 Mei 1995 dengan Nomor SK Pendirian 287/I02/Kep/95 yang berada dalam naungan Kementerian Pendidikan dan Kebudayaan.
+    </div>
+
+    <div class="paragraph-box" id="paragraf2">
+      Anda bisa mendapatkan update informasi terbaru terkait dengan kegiatan akademik dan non-akademik yang dilaksanakan oleh SMK BHAKTI NUSANTARA melalui website resmi SMK BHAKTI NUSANTARA dengan alamat <a href="https://www.smkbhinus.sch.id" target="_blank">www.smkbhinus.sch.id</a>.
+    </div>
+
+    <button id="tombol">Sembunyikan</button>
+    <button id="tampilkan">Tampilkan</button>
+    <button id="swap">Swap</button>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $("#tombol").click(function () {
+        $("#paragraf").slideUp();
+        $("#paragraf2").slideUp();
+      });
+
+      $("#tampilkan").click(function () {
+        $("#paragraf").slideDown();
+        $("#paragraf2").slideDown();
+      });
+
+      $("#swap").click(function () {
+        let isi1 = $("#paragraf").html();
+        let isi2 = $("#paragraf2").html();
+
+        $("#paragraf").html(isi2);
+        $("#paragraf2").html(isi1);
+      });
+    });
+  </script>
+
+</body>
+</html>
